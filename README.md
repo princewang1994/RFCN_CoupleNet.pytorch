@@ -58,6 +58,7 @@ $ git clone https://github.com/princewang1994/R-FCN.pytorch.git
 Then, create a folder:
 ```
 $ cd R-FCN.pytorch && mkdir data
+$ cd data
 $ ln -s $VOC_DEVKIT_ROOT .
 ```
 
@@ -102,7 +103,7 @@ It will compile all the modules you need, including NMS, ROI_Pooing, ROI_Align a
 
 ## Train
 
-To train a faster R-CNN model with vgg16 on pascal_voc, simply run:
+To train a R-FCN model with ResNet101 on pascal_voc, simply run:
 ```
 $ CUDA_VISIBLE_DEVICES=$GPU_ID python trainval_net.py \
 				   --arch rfcn \
