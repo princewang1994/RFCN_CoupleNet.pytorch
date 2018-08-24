@@ -43,8 +43,10 @@ We benchmark our code thoroughly on three datasets: pascal voc using two differe
 
 model    | #GPUs | batch size | lr        | lr_decay | max_epoch     |  time/epoch | mem/GPU | mAP
 ---------|--------|-----|--------|-----|-----|-------|--------|-----
-R-FCN  | 1 | 2 | 4e-3 | 8   | 7   |  0.88 hr | 3000 MB  | 73.2
+[R-FCN](https://drive.google.com/file/d/1JMh0gguOozEEIRijQxkQnMKLTAp2_iu5/view?usp=sharing)  | 1 | 2 | 4e-3 | 8   | 7   |  0.88 hr | 3000 MB  | 73.2
 CouleNet  | 1 | 2 | 4e-3 | 8   | 10  |  0.60 hr | 8900 MB  | 75.2
+
+- Pretrained model for R-FCN(VOC2007) has released~, See `Test` part following
 
 
 ## Preparation
@@ -65,7 +67,7 @@ $ ln -s $VOC_DEVKIT_ROOT .
 ### prerequisites
 
 * Python 3.6
-* Pytorch 0.3.0 or higher
+* Pytorch 0.3.0, **NOT suport 0.4.0 because of some errors**
 * CUDA 8.0 or higher
 
 ### Data Preparation
@@ -128,7 +130,13 @@ $ python test_net.py --dataset pascal_voc --arch rfcn \
                    --checkpoint $CHECKPOINT \
                    --cuda
 ```
-- Specify the specific model session(`--s` in training phase), chechepoch and checkpoint, e.g., SESSION=1, EPOCH=6, CHECKPOINT=416.
+- Specify the specific model session(`--s` in training phase), chechepoch and checkpoint, e.g., SESSION=1, EPOCH=6, CHECKPOINT=5010.
+
+###  Pretrained Model
+
+- R-FCN VOC2007: [faster_rcnn_2_12_5010.pth](https://drive.google.com/file/d/1JMh0gguOozEEIRijQxkQnMKLTAp2_iu5/view?usp=sharing)
+
+Download from link above and put it to `save/rfcn/res101/pascal_voc/faster_rcnn_2_12_5010.pth`. Then you can set `$SESSiON=2, $EPOCH=12, $CHECKPOINT=5010` in test command. It'll got 73.2 mAP.
 
 ## Demo
 
@@ -140,10 +148,12 @@ Below are some detection results:
 
 ## Going to do
 
-- Keeping update structures to reach the state-of-art
+- Keeping updating structures to reach the state-of-art
 - More benchmarking in VOC0712/COCO
-- Pretrained model for VOC
+- ~~RFCN Pretrained model for VOC07~~
+- CoupleNet pretrained model for VOC07
+- Adapt to fit PyTorch 0.4.0
 
 ## Acknowledgement
 
-This project is equally writen by [Prince Wang](https://github.com/princewang1994), but thanks the faster-rcnn.pytorch's code provider [jwyang](https://github.com/jwyang)
+This project is writen by [Prince Wang](https://github.com/princewang1994), and thanks the faster-rcnn.pytorch's code provider [jwyang](https://github.com/jwyang)
