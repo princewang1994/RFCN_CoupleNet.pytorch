@@ -43,8 +43,8 @@ We benchmark our code thoroughly on three datasets: pascal voc using two differe
 
 model    | #GPUs | batch size | lr        | lr_decay | max_epoch     |  time/epoch | mem/GPU | mAP
 ---------|--------|-----|--------|-----|-----|-------|--------|-----
-[R-FCN](https://drive.google.com/file/d/1JMh0gguOozEEIRijQxkQnMKLTAp2_iu5/view?usp=sharing)  | 1 | 2 | 4e-3 | 8   | 7   |  0.88 hr | 3000 MB  | 73.2
-CouleNet  | 1 | 2 | 4e-3 | 8   | 10  |  0.60 hr | 8900 MB  | 75.2
+[R-FCN](https://drive.google.com/file/d/1JMh0gguOozEEIRijQxkQnMKLTAp2_iu5/view?usp=sharing)  | 1 | 2 | 4e-3 | 8   | 20  |  0.88 hr | 3000 MB  | 73.8
+CouleNet  | 1 | 2 | 4e-3 | 8   | 20 |  0.60 hr | 8900 MB  | 75.2
 
 - Pretrained model for R-FCN(VOC2007) has released~, See `Test` part following
 
@@ -73,6 +73,7 @@ $ ln -s $VOC_DEVKIT_ROOT .
 ### Data Preparation
 
 * **PASCAL_VOC 07+12**: Please follow the instructions in [py-faster-rcnn](https://github.com/rbgirshick/py-faster-rcnn#beyond-the-demo-installation-for-training-and-testing-models) to prepare VOC datasets. Actually, you can refer to any others. After downloading the data, creat softlinks in the folder data/.
+* **Pretrained ResNet**: download from [here](https://drive.google.com/file/d/1I4Jmh2bU6BJVnwqfg5EDe8KGGdec2UE8/view?usp=sharing) and put it to `$RFCN_ROOT/data/pretrained_model/resnet101_caffe.pth`.
 
 
 ### Compilation
@@ -116,7 +117,7 @@ $ CUDA_VISIBLE_DEVICES=$GPU_ID python trainval_net.py \
 ```
 
 - Set `--s` to identified differenct experiments. 
-- For CoupleNet training, replace `--arch rfcn` with `--arch couplenet`, other arguments should be modified according to your machine. (e.g. larger learning rate for big batch-size)
+- For CoupleNet training, replace `--arch rfcn` with `--arch couplenet`, other arguments should be modified according to your machine. (e.g. larger learning rate for bigger batch-size)
 - Model are saved to `$RFCN_ROOT/save` 
 
 ## Test
