@@ -11,7 +11,7 @@ This project is an pytorch implement R-FCN and CoupleNet, large part code is ref
 
 arXiv:1605.06409: [R-FCN: Object Detection via Region-based Fully Convolutional Networks](https://arxiv.org/abs/1605.06409)
 
-![15063403082127](http://oodo7tmt3.bkt.clouddn.com/blog_201807132042010817.jpg)
+![15063403082127](http://princepicbed.oss-cn-beijing.aliyuncs.com/blog_201807132042010817.jpg)
 
 This repo has following modification compare to [jwyang/faster-rcnn.pytorch](https://github.com/jwyang/faster-rcnn.pytorch):
 
@@ -20,13 +20,13 @@ This repo has following modification compare to [jwyang/faster-rcnn.pytorch](htt
 - **Implement multi-scale training:** As the original paper says, each image is randomly reized to differenct resolutions (400, 500, 600, 700, 800) when training, and during test time, we use fix input size(600). These make 1.2 mAP gain in our experiments.
 - **Implement OHEM:** in this repo, we implement Online Hard Example Mining(OHEM) method in the paper, set `OHEM: False` in `cfgs/res101.yml` for using OHEM. Unluckly, it cause a bit performance degration in my experiments
 
-![](http://oodo7tmt3.bkt.clouddn.com/blog_20180817160334.jpg)
+![](http://princepicbed.oss-cn-beijing.aliyuncs.com/blog_20180817160334.jpg)
 
 ## CoupleNet
 
 arXiv:1708.02863:[CoupleNet: Coupling Global Structure with Local Parts for Object Detection](https://arxiv.org/abs/1708.02863)
 
-![](http://oodo7tmt3.bkt.clouddn.com/blog_20180816205255.png)
+![](http://princepicbed.oss-cn-beijing.aliyuncs.com/blog_20180816205255.png)
 
 - Making changes based on R-FCN
 - Implement local/global FCN in CoupleNet
